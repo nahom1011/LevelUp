@@ -27,8 +27,12 @@ function App() {
   }
 
   return (
-    <div className={`min-h-screen ${darkMode ? 'bg-gray-900' : 'bg-apple-bg'} pb-20`}>
-      <div className="max-w-2xl mx-auto px-4 py-6">
+    <div className={`min-h-screen pb-24 ${
+      darkMode 
+        ? 'bg-gradient-to-br from-gray-900 via-purple-900 to-violet-900' 
+        : 'bg-gradient-to-br from-purple-400 via-pink-400 to-blue-400'
+    }`}>
+      <div className="max-w-2xl mx-auto px-4 py-6 animate-scale-in">
         {screens[activeScreen]}
       </div>
       <Navigation activeScreen={activeScreen} setActiveScreen={setActiveScreen} darkMode={darkMode} />

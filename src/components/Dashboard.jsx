@@ -36,78 +36,94 @@ export default function Dashboard({ tasks, setTasks, dailySnapshots, darkMode })
   
   return (
     <div className="space-y-6">
-      <div className="text-center pt-4">
-        <h1 className={`text-4xl font-bold ${darkMode ? 'text-white' : 'text-apple-text'}`}>
+      {/* Header */}
+      <div className="text-center pt-4 animate-float">
+        <h1 className="text-5xl font-bold text-white drop-shadow-lg mb-2">
           {greeting}
         </h1>
-        <p className={`text-sm mt-2 ${darkMode ? 'text-gray-400' : 'text-apple-secondary'}`}>
+        <p className="text-white/80 text-sm">
           {new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}
         </p>
       </div>
       
-      <div className={`${darkMode ? 'glass-dark' : 'glass'} p-8`}>
+      {/* Progress Card */}
+      <div className="glass p-8 relative overflow-hidden group">
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-pink-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
         <CircularProgress percent={percent} darkMode={darkMode} />
-        <div className="text-center mt-6">
-          <p className={`text-5xl font-bold ${darkMode ? 'text-white' : 'text-apple-text'}`}>
+        <div className="text-center mt-6 relative z-10">
+          <p className="text-6xl font-bold text-white drop-shadow-lg animate-pulse-slow">
             {percent}%
           </p>
-          <p className={`text-sm mt-2 ${darkMode ? 'text-gray-400' : 'text-apple-secondary'}`}>
+          <p className="text-white/70 text-sm mt-3">
             {completedTasks} of {totalTasks} tasks completed
           </p>
         </div>
       </div>
       
+      {/* Insight Card */}
       <InsightCard insight={mainInsight} darkMode={darkMode} />
       
-      <form onSubmit={handleAddTask} className={`${darkMode ? 'glass-dark' : 'glass'} p-4`}>
+      {/* Add Task Input */}
+      <form onSubmit={handleAddTask} className="glass p-2 relative group">
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         <input
           type="text"
           value={newTask}
           onChange={(e) => setNewTask(e.target.value)}
-          placeholder="Add a new task..."
-          className={`w-full px-4 py-3 rounded-xl ${
-            darkMode 
-              ? 'bg-gray-800 text-white placeholder-gray-500' 
-              : 'bg-white text-apple-text placeholder-apple-secondary'
-          } focus:outline-none focus:ring-2 focus:ring-apple-blue`}
+          placeholder="✨ Add a new task..."
+          className="w-full px-6 py-4 rounded-2xl bg-white/10 text-white placeholder-white/50 focus:outline-none focus:bg-white/20 transition-all duration-300 border border-white/20 focus:border-white/40"
         />
       </form>
       
-      <div className={`${darkMode ? 'glass-dark' : 'glass'} p-6`}>
-        <h3 className={`text-lg font-semibold mb-4 ${darkMode ? 'text-white' : 'text-apple-text'}`}>
+      {/* Tasks List */}
+      <div className="glass p-6">
+        <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+          <span className="text-2xl">📋</span>
           Today's Tasks
         </h3>
         {tasks.length === 0 ? (
-          <p className={`text-center py-8 ${darkMode ? 'text-gray-400' : 'text-apple-secondary'}`}>
-            No tasks yet. Add one above!
-          </p>
+          <div className="text-center py-12">
+            <p className="text-white/50 text-lg">No tasks yet</p>
+            <p className="text-white/30 text-sm mt-2">Add one above to get started!</p>
+          </div>
         ) : (
-          <div className="space-y-2">
-            {tasks.slice(-5).reverse().map(task => (
+          <div className="space-y-3">
+            {tasks.slice(-5).reverse().map((task, index) => (
               <div
                 key={task.id}
-                className={`flex items-center gap-3 p-3 rounded-xl ${
-                  darkMode ? 'bg-gray-800' : 'bg-white'
-                }`}
+                className="glass-card p-4 group cursor-pointer"
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <input
-                  type="checkbox"
-                  checked={task.completed}
-                  onChange={() => {
-                    const updated = tasks.map(t =>
-                      t.id === task.id
-                        ? { ...t, completed: !t.completed, completedAt: !t.completed ? new Date().toISOString() : null }
-                        : t
-                    )
-                    setTasks(updated)
-                  }}
-                  className="w-5 h-5 rounded-full accent-apple-blue"
-                />
-                <span className={`flex-1 ${task.completed ? 'line-through opacity-50' : ''} ${
-                  darkMode ? 'text-white' : 'text-apple-text'
-                }`}>
-                  {task.title}
-                </span>
+                <div className="flex items-center gap-4">
+                  <div className="relative">
+                    <input
+                      type="checkbox"
+                      checked={task.completed}
+                      onChange={() => {
+                        const updated = tasks.map(t =>
+                          t.id === task.id
+                            ? { ...t, completed: !t.completed, completedAt: !t.completed ? new Date().toISOString() : null }
+                            : t
+                        )
+                        setTasks(updated)
+                      }}
+                      className="w-6 h-6 rounded-full appearance-none border-2 border-white/30 checked:bg-gradient-to-br checked:from-green-400 checked:to-blue-500 checked:border-transparent transition-all duration-300 cursor-pointer"
+                    />
+                    {task.completed && (
+                      <svg className="w-4 h-4 text-white absolute top-1 left-1 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                      </svg>
+                    )}
+                  </div>
+                  <span className={`flex-1 text-white transition-all duration-300 ${
+                    task.completed ? 'line-through opacity-40' : 'opacity-100'
+                  }`}>
+                    {task.title}
+                  </span>
+                  {task.completed && (
+                    <span className="text-2xl animate-bounce">✨</span>
+                  )}
+                </div>
               </div>
             ))}
           </div>

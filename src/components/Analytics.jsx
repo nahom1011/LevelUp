@@ -35,12 +35,16 @@ export default function Analytics({ dailySnapshots, darkMode }) {
     datasets: [{
       label: 'Productivity %',
       data: last7Days.map(s => s.percent),
-      borderColor: '#007AFF',
-      backgroundColor: 'rgba(0, 122, 255, 0.1)',
+      borderColor: 'rgba(102, 126, 234, 1)',
+      backgroundColor: 'rgba(102, 126, 234, 0.2)',
       tension: 0.4,
       fill: true,
-      pointRadius: 4,
-      pointHoverRadius: 6
+      pointRadius: 6,
+      pointHoverRadius: 8,
+      pointBackgroundColor: 'rgba(102, 126, 234, 1)',
+      pointBorderColor: 'rgba(255, 255, 255, 0.8)',
+      pointBorderWidth: 2,
+      borderWidth: 3
     }]
   }
   
@@ -49,12 +53,16 @@ export default function Analytics({ dailySnapshots, darkMode }) {
     datasets: [{
       label: 'Productivity %',
       data: last30Days.map(s => s.percent),
-      borderColor: '#007AFF',
-      backgroundColor: 'rgba(0, 122, 255, 0.1)',
+      borderColor: 'rgba(118, 75, 162, 1)',
+      backgroundColor: 'rgba(118, 75, 162, 0.2)',
       tension: 0.4,
       fill: true,
-      pointRadius: 2,
-      pointHoverRadius: 4
+      pointRadius: 3,
+      pointHoverRadius: 6,
+      pointBackgroundColor: 'rgba(118, 75, 162, 1)',
+      pointBorderColor: 'rgba(255, 255, 255, 0.8)',
+      pointBorderWidth: 2,
+      borderWidth: 3
     }]
   }
   
@@ -70,13 +78,16 @@ export default function Analytics({ dailySnapshots, darkMode }) {
     plugins: {
       legend: { display: false },
       tooltip: {
-        backgroundColor: darkMode ? '#1F2937' : '#FFFFFF',
-        titleColor: darkMode ? '#FFFFFF' : '#1D1D1F',
-        bodyColor: darkMode ? '#D1D5DB' : '#6E6E73',
-        borderColor: darkMode ? '#374151' : '#E5E5EA',
+        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+        titleColor: '#FFFFFF',
+        bodyColor: '#FFFFFF',
+        borderColor: 'rgba(255, 255, 255, 0.2)',
         borderWidth: 1,
-        padding: 12,
-        cornerRadius: 8
+        padding: 16,
+        cornerRadius: 12,
+        displayColors: false,
+        titleFont: { size: 14, weight: 'bold' },
+        bodyFont: { size: 16 }
       }
     },
     scales: {
@@ -84,17 +95,19 @@ export default function Analytics({ dailySnapshots, darkMode }) {
         beginAtZero: true,
         max: 100,
         grid: {
-          color: darkMode ? '#374151' : '#F5F5F7',
+          color: 'rgba(255, 255, 255, 0.1)',
           drawBorder: false
         },
         ticks: {
-          color: darkMode ? '#9CA3AF' : '#6E6E73'
+          color: 'rgba(255, 255, 255, 0.6)',
+          font: { size: 12 }
         }
       },
       x: {
         grid: { display: false },
         ticks: {
-          color: darkMode ? '#9CA3AF' : '#6E6E73'
+          color: 'rgba(255, 255, 255, 0.6)',
+          font: { size: 12 }
         }
       }
     }
@@ -102,37 +115,55 @@ export default function Analytics({ dailySnapshots, darkMode }) {
   
   return (
     <div className="space-y-6">
-      <h1 className={`text-3xl font-bold ${darkMode ? 'text-white' : 'text-apple-text'}`}>
-        Analytics
+      <h1 className="text-4xl font-bold text-white drop-shadow-lg">
+        📊 Analytics
       </h1>
       
-      <div className={`${darkMode ? 'glass-dark' : 'glass'} p-6`}>
-        <h2 className={`text-xl font-semibold mb-4 ${darkMode ? 'text-white' : 'text-apple-text'}`}>
-          Weekly View
-        </h2>
-        <div className="h-64">
-          <Line data={weeklyData} options={chartOptions} />
+      {/* Weekly View */}
+      <div className="glass p-6 relative overflow-hidden group">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        <div className="relative z-10">
+          <h2 className="text-2xl font-bold text-white mb-2 flex items-center gap-2">
+            <span>📅</span>
+            Weekly View
+          </h2>
+          <p className="text-white/60 text-sm mb-6">Last 7 days performance</p>
+          <div className="h-64">
+            <Line data={weeklyData} options={chartOptions} />
+          </div>
         </div>
       </div>
       
-      <div className={`${darkMode ? 'glass-dark' : 'glass'} p-6`}>
-        <h2 className={`text-xl font-semibold mb-2 ${darkMode ? 'text-white' : 'text-apple-text'}`}>
-          Monthly View
-        </h2>
-        <p className={`text-3xl font-bold mb-4 ${darkMode ? 'text-white' : 'text-apple-text'}`}>
-          {monthlyAvg}% <span className="text-sm font-normal text-apple-secondary">average</span>
-        </p>
-        <div className="h-64">
-          <Line data={monthlyData} options={chartOptions} />
+      {/* Monthly View */}
+      <div className="glass p-6 relative overflow-hidden group">
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-pink-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        <div className="relative z-10">
+          <h2 className="text-2xl font-bold text-white mb-2 flex items-center gap-2">
+            <span>📆</span>
+            Monthly View
+          </h2>
+          <div className="flex items-baseline gap-2 mb-6">
+            <p className="text-5xl font-bold text-white">{monthlyAvg}%</p>
+            <p className="text-white/60 text-sm">average this month</p>
+          </div>
+          <div className="h-64">
+            <Line data={monthlyData} options={chartOptions} />
+          </div>
         </div>
       </div>
       
-      <div className={`${darkMode ? 'glass-dark' : 'glass'} p-6`}>
-        <h2 className={`text-xl font-semibold mb-4 ${darkMode ? 'text-white' : 'text-apple-text'}`}>
-          Yearly View
-        </h2>
-        <div className="h-64">
-          <Bar data={yearlyData} options={chartOptions} />
+      {/* Yearly View */}
+      <div className="glass p-6 relative overflow-hidden group">
+        <div className="absolute inset-0 bg-gradient-to-br from-pink-500/10 to-orange-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        <div className="relative z-10">
+          <h2 className="text-2xl font-bold text-white mb-2 flex items-center gap-2">
+            <span>📈</span>
+            Yearly View
+          </h2>
+          <p className="text-white/60 text-sm mb-6">Monthly averages throughout the year</p>
+          <div className="h-64">
+            <Bar data={yearlyData} options={chartOptions} />
+          </div>
         </div>
       </div>
     </div>
@@ -156,8 +187,9 @@ function getYearlyData(snapshots) {
     datasets: [{
       label: 'Monthly Average %',
       data: averages,
-      backgroundColor: '#007AFF',
-      borderRadius: 8
+      backgroundColor: 'rgba(102, 126, 234, 0.8)',
+      borderRadius: 12,
+      borderWidth: 0
     }]
   }
 }
