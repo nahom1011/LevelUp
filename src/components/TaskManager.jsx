@@ -94,7 +94,7 @@ export default function TaskManager({ tasks, setTasks, darkMode }) {
             className={`px-5 py-2.5 rounded-2xl whitespace-nowrap font-medium transition-all duration-300 ${
               filter === cat
                 ? 'glass-button text-white scale-105'
-                : 'bg-white/10 text-white/60 hover:bg-white/20 hover:text-white'
+                : 'bg-gray-800/60 text-white/60 hover:bg-gray-700/60 hover:text-white'
             }`}
           >
             {cat !== 'All' && categoryEmojis[cat]} {cat}
@@ -147,7 +147,7 @@ export default function TaskManager({ tasks, setTasks, darkMode }) {
                     {task.title}
                   </h3>
                   <div className="flex gap-2 mt-3 flex-wrap">
-                    <span className="px-3 py-1 rounded-full text-xs font-medium bg-white/10 text-white/80 border border-white/20">
+                    <span className="px-3 py-1 rounded-full text-xs font-medium bg-gray-800/60 text-white/80 border border-white/10">
                       {categoryEmojis[task.category]} {task.category}
                     </span>
                     <span className={`px-3 py-1 rounded-full text-xs font-medium bg-gradient-to-r ${priorityColors[task.priority]} text-white`}>
@@ -159,7 +159,7 @@ export default function TaskManager({ tasks, setTasks, darkMode }) {
                 <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <button
                     onClick={() => handleEdit(task)}
-                    className="px-3 py-1.5 rounded-xl bg-white/10 hover:bg-white/20 text-white text-sm transition-all duration-300"
+                    className="px-3 py-1.5 rounded-xl bg-gray-700/60 hover:bg-gray-600/60 text-white text-sm transition-all duration-300"
                   >
                     Edit
                   </button>
@@ -178,9 +178,9 @@ export default function TaskManager({ tasks, setTasks, darkMode }) {
       
       {/* Add/Edit Modal */}
       {showAddModal && (
-        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-50 animate-scale-in">
+        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 z-50 animate-scale-in">
           <div className="glass max-w-md w-full p-8 relative">
-            <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-3xl" />
+            <div className="absolute inset-0 bg-gradient-to-br from-gray-800/20 to-gray-700/20 rounded-3xl" />
             
             <h2 className="text-3xl font-bold text-white mb-6 relative z-10">
               {editingTask ? '✏️ Edit Task' : '✨ New Task'}
@@ -193,13 +193,13 @@ export default function TaskManager({ tasks, setTasks, darkMode }) {
                 onChange={(e) => setFormData({ ...formData, title: e.target.value })}
                 placeholder="Task title..."
                 required
-                className="w-full px-5 py-4 rounded-2xl bg-white/10 text-white placeholder-white/40 focus:outline-none focus:bg-white/20 transition-all duration-300 border border-white/20 focus:border-white/40"
+                className="w-full px-5 py-4 rounded-2xl bg-black/50 text-white placeholder-white/30 focus:outline-none focus:bg-black/30 transition-all duration-300 border border-white/10 focus:border-white/20"
               />
               
               <select
                 value={formData.category}
                 onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                className="w-full px-5 py-4 rounded-2xl bg-white/10 text-white focus:outline-none focus:bg-white/20 transition-all duration-300 border border-white/20 focus:border-white/40"
+                className="w-full px-5 py-4 rounded-2xl bg-black/50 text-white focus:outline-none focus:bg-black/30 transition-all duration-300 border border-white/10 focus:border-white/20"
               >
                 {categories.map(cat => (
                   <option key={cat} value={cat} className="bg-gray-900">
@@ -211,7 +211,7 @@ export default function TaskManager({ tasks, setTasks, darkMode }) {
               <select
                 value={formData.priority}
                 onChange={(e) => setFormData({ ...formData, priority: e.target.value })}
-                className="w-full px-5 py-4 rounded-2xl bg-white/10 text-white focus:outline-none focus:bg-white/20 transition-all duration-300 border border-white/20 focus:border-white/40"
+                className="w-full px-5 py-4 rounded-2xl bg-black/50 text-white focus:outline-none focus:bg-black/30 transition-all duration-300 border border-white/10 focus:border-white/20"
               >
                 {priorities.map(pri => (
                   <option key={pri} value={pri} className="bg-gray-900">{pri}</option>
@@ -226,7 +226,7 @@ export default function TaskManager({ tasks, setTasks, darkMode }) {
                     setEditingTask(null)
                     setFormData({ title: '', category: 'Personal', priority: 'Medium' })
                   }}
-                  className="flex-1 py-4 rounded-2xl bg-white/10 hover:bg-white/20 text-white font-medium transition-all duration-300"
+                  className="flex-1 py-4 rounded-2xl bg-gray-800/80 hover:bg-gray-700/80 text-white font-medium transition-all duration-300"
                 >
                   Cancel
                 </button>

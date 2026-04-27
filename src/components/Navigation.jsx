@@ -18,12 +18,12 @@ export default function Navigation({ activeScreen, setActiveScreen, darkMode }) 
                 onClick={() => setActiveScreen(item.id)}
                 className={`relative flex flex-col items-center py-3 px-4 rounded-2xl transition-all duration-300 ${
                   activeScreen === item.id
-                    ? 'bg-white/20 scale-110'
-                    : 'hover:bg-white/10 hover:scale-105'
+                    ? 'bg-gray-800/80 scale-110'
+                    : 'hover:bg-gray-800/40 hover:scale-105'
                 }`}
               >
                 {activeScreen === item.id && (
-                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/30 to-pink-500/30 rounded-2xl blur-xl" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-gray-700/40 to-gray-600/40 rounded-2xl blur-xl" />
                 )}
                 <span className={`text-2xl mb-1 relative z-10 transition-transform duration-300 ${
                   activeScreen === item.id ? 'scale-125' : ''

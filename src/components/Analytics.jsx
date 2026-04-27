@@ -35,13 +35,13 @@ export default function Analytics({ dailySnapshots, darkMode }) {
     datasets: [{
       label: 'Productivity %',
       data: last7Days.map(s => s.percent),
-      borderColor: 'rgba(102, 126, 234, 1)',
-      backgroundColor: 'rgba(102, 126, 234, 0.2)',
+      borderColor: 'rgba(156, 163, 175, 1)',
+      backgroundColor: 'rgba(156, 163, 175, 0.2)',
       tension: 0.4,
       fill: true,
       pointRadius: 6,
       pointHoverRadius: 8,
-      pointBackgroundColor: 'rgba(102, 126, 234, 1)',
+      pointBackgroundColor: 'rgba(156, 163, 175, 1)',
       pointBorderColor: 'rgba(255, 255, 255, 0.8)',
       pointBorderWidth: 2,
       borderWidth: 3
@@ -53,13 +53,13 @@ export default function Analytics({ dailySnapshots, darkMode }) {
     datasets: [{
       label: 'Productivity %',
       data: last30Days.map(s => s.percent),
-      borderColor: 'rgba(118, 75, 162, 1)',
-      backgroundColor: 'rgba(118, 75, 162, 0.2)',
+      borderColor: 'rgba(209, 213, 219, 1)',
+      backgroundColor: 'rgba(209, 213, 219, 0.2)',
       tension: 0.4,
       fill: true,
       pointRadius: 3,
       pointHoverRadius: 6,
-      pointBackgroundColor: 'rgba(118, 75, 162, 1)',
+      pointBackgroundColor: 'rgba(209, 213, 219, 1)',
       pointBorderColor: 'rgba(255, 255, 255, 0.8)',
       pointBorderWidth: 2,
       borderWidth: 3
@@ -121,7 +121,7 @@ export default function Analytics({ dailySnapshots, darkMode }) {
       
       {/* Weekly View */}
       <div className="glass p-6 relative overflow-hidden group">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-800/20 to-gray-700/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
         <div className="relative z-10">
           <h2 className="text-2xl font-bold text-white mb-2 flex items-center gap-2">
             <span>📅</span>
@@ -136,7 +136,7 @@ export default function Analytics({ dailySnapshots, darkMode }) {
       
       {/* Monthly View */}
       <div className="glass p-6 relative overflow-hidden group">
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-pink-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-800/20 to-gray-700/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
         <div className="relative z-10">
           <h2 className="text-2xl font-bold text-white mb-2 flex items-center gap-2">
             <span>📆</span>
@@ -154,7 +154,7 @@ export default function Analytics({ dailySnapshots, darkMode }) {
       
       {/* Yearly View */}
       <div className="glass p-6 relative overflow-hidden group">
-        <div className="absolute inset-0 bg-gradient-to-br from-pink-500/10 to-orange-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-800/20 to-gray-700/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
         <div className="relative z-10">
           <h2 className="text-2xl font-bold text-white mb-2 flex items-center gap-2">
             <span>📈</span>
@@ -187,7 +187,7 @@ function getYearlyData(snapshots) {
     datasets: [{
       label: 'Monthly Average %',
       data: averages,
-      backgroundColor: 'rgba(102, 126, 234, 0.8)',
+      backgroundColor: 'rgba(156, 163, 175, 0.8)',
       borderRadius: 12,
       borderWidth: 0
     }]

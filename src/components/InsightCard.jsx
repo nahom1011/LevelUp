@@ -1,7 +1,7 @@
 export default function InsightCard({ insight, darkMode }) {
   return (
     <div className="glass p-6 relative overflow-hidden group">
-      <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/10 to-orange-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-800/20 to-gray-700/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
       <div className="flex items-start gap-4 relative z-10">
         <div className="text-5xl animate-float">
           {insight.emoji}

@@ -27,7 +27,7 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen pb-24 bg-gradient-to-br from-gray-900 via-purple-900 to-violet-900">
+    <div className="min-h-screen pb-24 bg-black">
       <div className="max-w-2xl mx-auto px-4 py-6 animate-scale-in">
         {screens[activeScreen]}
       </div>

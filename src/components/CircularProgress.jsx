@@ -6,14 +6,14 @@ export default function CircularProgress({ percent, darkMode }) {
   return (
     <div className="flex justify-center relative">
       <div className="absolute inset-0 flex items-center justify-center">
-        <div className="w-40 h-40 bg-gradient-to-br from-purple-500/30 to-pink-500/30 rounded-full blur-2xl animate-pulse-slow" />
+        <div className="w-40 h-40 bg-gradient-to-br from-gray-600/20 to-gray-500/20 rounded-full blur-2xl animate-pulse-slow" />
       </div>
       <svg width="200" height="200" className="transform -rotate-90 relative z-10 drop-shadow-2xl">
         <defs>
           <linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#667eea" />
-            <stop offset="50%" stopColor="#764ba2" />
-            <stop offset="100%" stopColor="#f093fb" />
+            <stop offset="0%" stopColor="#ffffff" />
+            <stop offset="50%" stopColor="#d1d5db" />
+            <stop offset="100%" stopColor="#9ca3af" />
           </linearGradient>
           <filter id="glow">
             <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
@@ -27,7 +27,7 @@ export default function CircularProgress({ percent, darkMode }) {
           cx="100"
           cy="100"
           r={radius}
-          stroke="rgba(255, 255, 255, 0.1)"
+          stroke="rgba(255, 255, 255, 0.05)"
           strokeWidth="14"
           fill="none"
         />

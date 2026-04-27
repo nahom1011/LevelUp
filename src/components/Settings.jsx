@@ -30,7 +30,7 @@ export default function Settings({ darkMode, setDarkMode, setTasks, setDailySnap
       
       {/* Dark Mode Toggle */}
       <div className="glass p-6 relative overflow-hidden group">
-        <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-800/20 to-gray-700/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
         <div className="flex items-center justify-between relative z-10">
           <div>
             <h3 className="font-semibold text-white text-lg flex items-center gap-2">
@@ -43,7 +43,7 @@ export default function Settings({ darkMode, setDarkMode, setTasks, setDailySnap
           </div>
           <button
             onClick={() => setDarkMode(!darkMode)}
-            className="relative w-16 h-8 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 transition-all duration-300"
+            className="relative w-16 h-8 rounded-full bg-gray-700 transition-all duration-300"
           >
             <div className="absolute top-1 left-9 w-6 h-6 bg-white rounded-full shadow-lg transition-all duration-300" />
           </button>
@@ -52,7 +52,7 @@ export default function Settings({ darkMode, setDarkMode, setTasks, setDailySnap
       
       {/* Data Management */}
       <div className="glass p-6 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-cyan-500/10" />
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-800/20 to-gray-700/20" />
         <div className="relative z-10">
           <h3 className="font-semibold text-white text-lg mb-4 flex items-center gap-2">
             <span>💾</span>
@@ -79,7 +79,7 @@ export default function Settings({ darkMode, setDarkMode, setTasks, setDailySnap
       
       {/* Stats Card */}
       <div className="glass p-6 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 to-emerald-500/10" />
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-800/20 to-gray-700/20" />
         <div className="relative z-10">
           <h3 className="font-semibold text-white text-lg mb-4 flex items-center gap-2">
             <span>📊</span>
@@ -104,7 +104,7 @@ export default function Settings({ darkMode, setDarkMode, setTasks, setDailySnap
       
       {/* About */}
       <div className="glass p-6 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-pink-500/10" />
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-800/20 to-gray-700/20" />
         <div className="relative z-10 text-center">
           <div className="text-5xl mb-3 animate-float">✨</div>
           <h3 className="font-bold text-white text-xl mb-2">

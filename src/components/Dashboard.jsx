@@ -48,7 +48,7 @@ export default function Dashboard({ tasks, setTasks, dailySnapshots, darkMode })
       
       {/* Progress Card */}
       <div className="glass p-8 relative overflow-hidden group">
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-pink-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-800/30 to-gray-700/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
         <CircularProgress percent={percent} darkMode={darkMode} />
         <div className="text-center mt-6 relative z-10">
           <p className="text-6xl font-bold text-white drop-shadow-lg animate-pulse-slow">
@@ -65,13 +65,13 @@ export default function Dashboard({ tasks, setTasks, dailySnapshots, darkMode })
       
       {/* Add Task Input */}
       <form onSubmit={handleAddTask} className="glass p-2 relative group">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        <div className="absolute inset-0 bg-gradient-to-r from-gray-800/30 to-gray-700/30 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         <input
           type="text"
           value={newTask}
           onChange={(e) => setNewTask(e.target.value)}
           placeholder="✨ Add a new task..."
-          className="w-full px-6 py-4 rounded-2xl bg-white/10 text-white placeholder-white/50 focus:outline-none focus:bg-white/20 transition-all duration-300 border border-white/20 focus:border-white/40"
+          className="w-full px-6 py-4 rounded-2xl bg-black/50 text-white placeholder-white/40 focus:outline-none focus:bg-black/30 transition-all duration-300 border border-white/10 focus:border-white/20"
         />
       </form>
       

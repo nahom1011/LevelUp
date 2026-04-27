@@ -23,7 +23,7 @@ export default function Insights({ tasks, dailySnapshots, darkMode }) {
               className="glass p-6 relative overflow-hidden group"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/10 to-orange-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-br from-gray-800/20 to-gray-700/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
               <div className="flex items-start gap-5 relative z-10">
                 <div className="text-5xl animate-float" style={{ animationDelay: `${index * 0.2}s` }}>
@@ -48,7 +48,7 @@ export default function Insights({ tasks, dailySnapshots, darkMode }) {
       {/* Tips Section */}
       {insights.length > 0 && (
         <div className="glass p-6 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 to-blue-500/10" />
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-800/20 to-gray-700/20" />
           <div className="relative z-10">
             <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
               <span>💫</span>
@@ -56,15 +56,15 @@ export default function Insights({ tasks, dailySnapshots, darkMode }) {
             </h3>
             <ul className="space-y-3 text-white/80 text-sm">
               <li className="flex items-start gap-2">
-                <span className="text-green-400 mt-0.5">✓</span>
+                <span className="text-gray-400 mt-0.5">✓</span>
                 <span>Aim for 60%+ completion rate to maintain streaks</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-green-400 mt-0.5">✓</span>
+                <span className="text-gray-400 mt-0.5">✓</span>
                 <span>Focus on 5-7 high-priority tasks for optimal performance</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-green-400 mt-0.5">✓</span>
+                <span className="text-gray-400 mt-0.5">✓</span>
                 <span>Review your analytics weekly to identify patterns</span>
               </li>
             </ul>
