@@ -43,13 +43,9 @@ export default function Settings({ darkMode, setDarkMode, setTasks, setDailySnap
           </div>
           <button
             onClick={() => setDarkMode(!darkMode)}
-            className={`relative w-16 h-8 rounded-full transition-all duration-300 ${
-              darkMode ? 'bg-gradient-to-r from-purple-500 to-pink-500' : 'bg-white/20'
-            }`}
+            className="relative w-16 h-8 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 transition-all duration-300"
           >
-            <div className={`absolute top-1 w-6 h-6 bg-white rounded-full shadow-lg transition-all duration-300 ${
-              darkMode ? 'left-9' : 'left-1'
-            }`} />
+            <div className="absolute top-1 left-9 w-6 h-6 bg-white rounded-full shadow-lg transition-all duration-300" />
           </button>
         </div>
       </div>
